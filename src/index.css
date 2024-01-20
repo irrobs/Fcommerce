@@ -5,6 +5,7 @@
 .app {
   display: grid;
   grid-template-columns: [full-width-start] 1fr[content-start]repeat(12, 70px) [content-end]1fr[full-width-end];
+  grid-template-rows: min-content min-content;
 
   column-gap: 15px;
 }
