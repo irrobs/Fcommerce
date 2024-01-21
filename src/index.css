@@ -11,13 +11,26 @@
 
   column-gap: 15px;
 }
-
-.test {
-  border-radius: 1rem;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
-  z-index: 1;
-}
 .main-nav__item-text {
   text-shadow: 1px 1px 0 #ff6f61;
   z-index: 2;
+}
+
+.carrousel__button--previous {
+  transform: translate(-50%, -50%);
+}
+
+.carrousel__button--next {
+  transform: translate(50%, -50%);
+  transition: all 0.3s ease-out;
+}
+
+.carrousel__button--previous:hover,
+.carrousel__button--next:hover {
+  background-color: #ff6f61;
+  border-color: #ff6f61;
+}
+.carrousel__button--previous:hover svg,
+.carrousel__button--next:hover svg {
+  stroke: white;
 }

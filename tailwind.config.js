@@ -7,10 +7,12 @@ export default {
       body: ["Quicksand"],
     },
     colors: {
+      transparent: "transparent",
       primary: "#FF6F61",
       black: "#000000",
       white: "#ffffff",
       gray: "#E8E8E8",
+      red: "#dc2626",
     },
   },
   plugins: [],
