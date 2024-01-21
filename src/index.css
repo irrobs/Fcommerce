@@ -4,8 +4,20 @@
 
 .app {
   display: grid;
-  grid-template-columns: [full-width-start] 1fr[content-start]repeat(12, 70px) [content-end]1fr[full-width-end];
-  grid-template-rows: min-content min-content;
+  grid-template-columns:
+    [full-width-start] minmax(1rem, 1fr) [content-start]repeat(12, 70px)
+    [content-end]minmax(1rem, 1fr) [full-width-end];
+  grid-template-rows: min-content min-content min-content;
 
   column-gap: 15px;
+}
+
+.test {
+  border-radius: 1rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+  z-index: 1;
+}
+.main-nav__item-text {
+  text-shadow: 1px 1px 0 #ff6f61;
+  z-index: 2;
 }
