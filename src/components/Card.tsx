@@ -20,7 +20,7 @@ export default function Card({
   console.log(id);
   return (
     <div
-      className={`shadow-md flex flex-col rounded-2xl overflow-hidden relative ${width} `}
+      className={`shadow-md flex flex-col rounded-2xl overflow-hidden relative ${width} p-4`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@ export default function Card({
       </svg>
       <img className="h-44" src={image} alt={title} />
 
-      <div className="p-4 flex flex-col h-full">
+      <div className="p-4 flex flex-col grow ">
         <Rating rating={rating} marginTop="mt-2" />
         <h3 className="font-medium mb-4">{title}</h3>
         <span className="mt-auto font-bold">R${price}</span>

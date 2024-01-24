@@ -7,7 +7,10 @@ import NavigationItem from "./components/NavigationItem";
 import MainPageContent from "./components/MainPageContent";
 import ProductListPage from "./components/ProductListPage";
 import ProductPage from "./components/ProductPage";
+
 import Footer from "./components/Footer";
+
+import CartSidebar from "./components/CartSidebar";
 
 export default function App() {
   const navItems = [
@@ -29,7 +32,8 @@ export default function App() {
     },
   ];
   return (
-    <div className="app font-body">
+    <div className="app font-body relative">
+      {/* <CartSidebar /> */}
       <Header>
         <HeaderIcons />
       </Header>
