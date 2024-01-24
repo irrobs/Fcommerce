@@ -74,6 +74,7 @@ export default function MainCarrousel() {
           price={produto.price}
           image={produto.image}
           rating={produto.rating}
+          width="w-1/4"
         />
       ))}
     </div>

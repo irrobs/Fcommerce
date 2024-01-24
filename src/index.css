@@ -34,3 +34,9 @@
 .carrousel__button--next:hover svg {
   stroke: white;
 }
+
+.productList__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}

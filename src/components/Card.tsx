@@ -6,18 +6,22 @@ type productType = {
   price: number;
   image: string;
   rating: number;
+  width: string;
 };
 
-export default function CarrouselItem({
+export default function Card({
   id,
   title,
   price,
   image,
   rating,
+  width,
 }: productType) {
   console.log(id);
   return (
-    <div className="shadow-md flex flex-col rounded-2xl overflow-hidden relative w-1/4 ">
+    <div
+      className={`shadow-md flex flex-col rounded-2xl overflow-hidden relative ${width} `}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

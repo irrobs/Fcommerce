@@ -4,7 +4,8 @@ import HeaderIcons from "./components/HeaderIcons";
 import Navigation from "./components/Navigation";
 import NavigationItem from "./components/NavigationItem";
 
-/* import MainPageContent from "./components/MainPageContent"; */
+import MainPageContent from "./components/MainPageContent";
+import ProductListPage from "./components/ProductListPage";
 import ProductPage from "./components/ProductPage";
 import Footer from "./components/Footer";
 
@@ -39,7 +40,8 @@ export default function App() {
       </Navigation>
       <main className="col-start-2 col-span-12 row-start-3 ">
         {/* <MainPageContent /> */}
-        <ProductPage />
+        <ProductListPage />
+        {/* <ProductPage /> */}
       </main>
       <Footer />
     </div>
