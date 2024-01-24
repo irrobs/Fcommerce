@@ -8,7 +8,11 @@ export default {
     },
     colors: {
       transparent: "transparent",
-      primary: "#FF6F61",
+      primary: {
+        light: "#FF7D71",
+        DEFAULT: "#FF6F61",
+        dark: "#CC594E",
+      },
       black: "#000000",
       white: "#ffffff",
       gray: "#E8E8E8",

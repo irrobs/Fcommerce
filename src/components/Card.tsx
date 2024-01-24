@@ -35,7 +35,7 @@ export default function CarrouselItem({
       <img className="h-44" src={image} alt={title} />
 
       <div className="p-4 flex flex-col h-full">
-        <Rating rating={rating} />
+        <Rating rating={rating} marginTop="mt-2" />
         <h3 className="font-medium mb-4">{title}</h3>
         <span className="mt-auto font-bold">R${price}</span>
       </div>

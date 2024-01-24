@@ -1,4 +1,10 @@
-export default function Rating({ rating }: { rating: number }) {
+export default function Rating({
+  rating,
+  marginTop,
+}: {
+  rating: number;
+  marginTop?: string;
+}) {
   const fullStar = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -40,5 +46,5 @@ export default function Rating({ rating }: { rating: number }) {
   for (let j = stars.length; j < 5; j++) {
     stars.push(emptyStar);
   }
-  return <div className="mt-2 flex gap-0.5">{stars}</div>;
+  return <div className={`${marginTop} flex gap-0.5`}>{stars}</div>;
 }

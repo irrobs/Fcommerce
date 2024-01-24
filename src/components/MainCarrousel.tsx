@@ -1,4 +1,4 @@
-import CarrouselItem from "./CarrouselItem";
+import Card from "./Card";
 
 export default function MainCarrousel() {
   const produtosPopulares = [
@@ -68,7 +68,7 @@ export default function MainCarrousel() {
       </button>
 
       {produtosPopulares.map((produto) => (
-        <CarrouselItem
+        <Card
           id={produto.id}
           title={produto.title}
           price={produto.price}
