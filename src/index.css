@@ -7,7 +7,7 @@
   grid-template-columns:
     [full-width-start] minmax(1rem, 1fr) [content-start]repeat(12, 70px)
     [content-end]minmax(1rem, 1fr) [full-width-end];
-  grid-template-rows: min-content min-content min-content;
+  grid-template-rows: repeat(4, min-content);
 
   column-gap: 15px;
 }
