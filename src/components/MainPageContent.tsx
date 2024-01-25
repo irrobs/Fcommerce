@@ -5,9 +5,7 @@ import acessorios from "../assets/nav-acessorios.jpg";
 import maisVendidos from "../assets/nav-mais-vendidos.jpg";
 import fireIcon from "../assets/fire-solid.svg";
 
-import MainCarrousel from "./MainCarrousel";
-
-export default function MainPageContent() {
+export default function MainPageContent({ children }) {
   return (
     <>
       <section className="mt-8 grid grid-cols-4 grid-rows-2 gap-4">
@@ -62,7 +60,7 @@ export default function MainPageContent() {
             Populares
           </span>
         </h2>
-        <MainCarrousel />
+        {children}
       </section>
     </>
   );

@@ -1,33 +1,51 @@
+import { useEffect, useState } from "react";
 import Button from "./Button";
 import Rating from "./Rating";
 
-export default function ProductPage() {
-  const produto = {
-    id: 1,
-    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-    price: 109.95,
-    description:
-      "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    rating: {
-      rate: 3.9,
-      count: 120,
-    },
+type productProps = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
   };
+};
+
+export default function ProductPage({ curProduct }: { curProduct: number }) {
+  const [product, setProduct] = useState<object | productProps>({});
+
+  useEffect(
+    function () {
+      fetch(`https://fakestoreapi.com/products/${curProduct}`)
+        .then((res) => res.json())
+        .then((data) => setProduct(data));
+    },
+    [curProduct]
+  );
+
+  if (!("id" in product)) {
+    // Product data is not yet available
+    return <div>Loading...</div>; /* criar loading component */
+  }
+
   return (
     <div className="flex gap-8 py-24">
       <div className="w-1/2 h-1/2">
-        <img src={produto.image} alt={produto.title} />
+        <img src={product.image} alt={product.title} />
       </div>
       <div className=" w-1/2 flex flex-col gap-6">
-        <h2 className="text-3xl font-bold uppercase">{produto.title}</h2>
-        <p className="text-lg uppercase">{produto.description}</p>
+        <h2 className="text-3xl font-bold uppercase">{product.title}</h2>
+        <p className="text-lg uppercase">{product.description}</p>
         <p className="flex items-center gap-2">
           <span className="text-xl font-bold">
-            {Math.round(produto.rating.rate)}
+            {Math.round(product.rating.rate)}
           </span>
-          <Rating rating={produto.rating.rate} />
-          <span className="ml-auto font-bold text-2xl">R${produto.price}</span>
+          <Rating rating={product.rating.rate} />
+          <span className="ml-auto font-bold text-2xl">R${product.price}</span>
         </p>
         <div className="flex flex-col gap-4 mt-auto">
           <Button

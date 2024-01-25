@@ -1,6 +1,10 @@
 import Card from "./Card";
 
-export default function MainCarrousel() {
+type carrouselProps = {
+  onSetProductPage: (a: number) => void;
+};
+
+export default function MainCarrousel({ onSetProductPage }: carrouselProps) {
   const produtosPopulares = [
     {
       id: 1,
@@ -69,12 +73,14 @@ export default function MainCarrousel() {
 
       {produtosPopulares.map((produto) => (
         <Card
+          key={produto.id}
           id={produto.id}
           title={produto.title}
           price={produto.price}
           image={produto.image}
           rating={produto.rating}
           width="w-1/4"
+          onSetProductPage={onSetProductPage}
         />
       ))}
     </div>

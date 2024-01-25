@@ -7,6 +7,7 @@ type productType = {
   image: string;
   rating: number;
   width: string;
+  onSetProductPage: (a: number) => void;
 };
 
 export default function Card({
@@ -16,11 +17,16 @@ export default function Card({
   image,
   rating,
   width,
+  onSetProductPage,
 }: productType) {
-  console.log(id);
+  function handleSetProductPage(id: number) {
+    onSetProductPage(id);
+  }
+
   return (
     <div
       className={`shadow-md flex flex-col rounded-2xl overflow-hidden relative ${width} p-4`}
+      onClick={() => handleSetProductPage(id)}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
