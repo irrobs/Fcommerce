@@ -87,7 +87,10 @@ export default function App() {
       </Navigation>
       <main className="col-start-2 col-span-12 row-start-3 ">
         {isMainPageActive && (
-          <MainPageContent>
+          <MainPageContent
+            onActivateProductListPage={activateProductListPage}
+            onSetProductListCategory={setProductListCategory}
+          >
             <MainCarrousel onSetProductPage={activateProductPage} />
           </MainPageContent>
         )}

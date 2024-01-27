@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Card from "./Card";
 
 type carrouselProps = {
@@ -5,6 +6,9 @@ type carrouselProps = {
 };
 
 export default function MainCarrousel({ onSetProductPage }: carrouselProps) {
+  const [slide, setSlide] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+
   const produtosPopulares = [
     {
       id: 1,
@@ -12,6 +16,17 @@ export default function MainCarrousel({ onSetProductPage }: carrouselProps) {
       price: 109.95,
       image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
       rating: 3.9,
+    },
+    {
+      id: 14,
+      title:
+        "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
+      price: 999.99,
+      description:
+        "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
+      category: "electronics",
+      image: "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
+      rating: 2.2,
     },
     {
       id: 2,
@@ -22,11 +37,15 @@ export default function MainCarrousel({ onSetProductPage }: carrouselProps) {
       rating: 4.1,
     },
     {
-      id: 3,
-      title: "Mens Cotton Jacket",
-      price: 55.99,
-      image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
-      rating: 4.7,
+      id: 16,
+      title:
+        "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
+      price: 29.95,
+      description:
+        "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
+      category: "women's clothing",
+      image: "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
+      rating: 2.9,
     },
     {
       id: 4,
@@ -35,54 +54,91 @@ export default function MainCarrousel({ onSetProductPage }: carrouselProps) {
       image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
       rating: 2.1,
     },
+    {
+      id: 19,
+      title: "Opna Women's Short Sleeve Moisture",
+      price: 7.95,
+      description:
+        "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+      category: "women's clothing",
+      image: "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
+      rating: 4.5,
+    },
   ];
+
+  function handleTranslationNext() {
+    if (slide === 2) return;
+    setSlide((s) => {
+      const newSlide = s + 1;
+      setTranslateX(() => -(newSlide * 100));
+      return newSlide;
+    });
+  }
+
+  function handleTranslationPrevious() {
+    if (slide === 0) return;
+    setSlide((s) => {
+      const newSlide = s - 1;
+      setTranslateX(() => -(newSlide * 100));
+      return newSlide;
+    });
+  }
   return (
-    <div className="mt-6 flex gap-4 relative">
-      <button className="carrousel__button--previous absolute top-1/2 left-0 z-10 w-12 h-12 rounded-full border flex items-center justify-center bg-white ">
+    <div className="mt-6 relative">
+      <button
+        className="carrousel__button--previous absolute top-1/2 left-0 z-10 w-12 h-12 rounded-full border flex items-center justify-center bg-white "
+        onClick={handleTranslationPrevious}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M15.75 19.5 8.25 12l7.5-7.5"
           />
         </svg>
       </button>
-      <button className="carrousel__button--next absolute top-1/2 right-0 z-10 w-12 h-12 rounded-full border flex items-center justify-center bg-white">
+      <button
+        className="carrousel__button--next absolute top-1/2 right-0 z-10 w-12 h-12 rounded-full border flex items-center justify-center bg-white"
+        onClick={handleTranslationNext}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="m8.25 4.5 7.5 7.5-7.5 7.5"
           />
         </svg>
       </button>
 
-      {produtosPopulares.map((produto) => (
-        <Card
-          key={produto.id}
-          id={produto.id}
-          title={produto.title}
-          price={produto.price}
-          image={produto.image}
-          rating={produto.rating}
-          width="w-1/4"
-          onSetProductPage={onSetProductPage}
-        />
-      ))}
+      <div className="flex gap-4 overflow-hidden">
+        {produtosPopulares.map((produto) => (
+          <Card
+            key={produto.id}
+            id={produto.id}
+            title={produto.title}
+            price={produto.price}
+            image={produto.image}
+            rating={produto.rating}
+            width="max-w-60"
+            translate={translateX}
+            onSetProductPage={onSetProductPage}
+          />
+        ))}
+      </div>
     </div>
   );
 }
