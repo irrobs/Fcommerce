@@ -1,10 +1,25 @@
+import { Dispatch, SetStateAction } from "react";
+
 import Button from "./Button";
 import CardCart from "./CardCart";
 
-export default function CartSidebar() {
+export default function CartSidebar({
+  sidebarActive,
+  onSetSidebar,
+}: {
+  sidebarActive: boolean;
+  onSetSidebar: Dispatch<SetStateAction<boolean>>;
+}) {
   return (
-    <div className="flex flex-col fixed z-40 top-0 right-0 bg-white h-screen w-1/4 border-l-2 border-primary py-4 px-3 text-primary font-bold ">
-      <button className="text-black absolute top-4 right-4 text-4xl font-bold hover:text-red duration-200">
+    <div
+      className={`${
+        sidebarActive ? "activeSidebar" : ""
+      } flex flex-col fixed z-40 top-0 right-0 bg-white h-screen w-1/4 border-l-2 border-primary py-4 px-3 text-primary font-bold translate-x-full duration-500 ease-out`}
+    >
+      <button
+        className="text-black absolute top-4 right-4 text-4xl font-bold hover:text-red duration-200"
+        onClick={() => onSetSidebar(!sidebarActive)}
+      >
         X
       </button>
       <h2 className="text-3xl ">Seu carrinho</h2>

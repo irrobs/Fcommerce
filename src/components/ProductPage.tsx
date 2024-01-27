@@ -15,7 +15,11 @@ type productProps = {
   };
 };
 
-export default function ProductPage({ curProduct }: { curProduct: number }) {
+export default function ProductPage({
+  curProduct,
+}: {
+  curProduct: null | number;
+}) {
   const [product, setProduct] = useState<object | productProps>({});
 
   useEffect(

@@ -40,3 +40,10 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
+
+.activeSidebar {
+  transform: translateX(0);
+}
+.inactiveSidebar {
+  transform: translateX(100%);
+}

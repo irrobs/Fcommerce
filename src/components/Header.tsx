@@ -1,10 +1,19 @@
 import logoCart from "../assets/cart-solid.svg";
 import magnifyingIcon from "../assets/magnifying-glass.svg";
 
-export default function Header({ children }: { children: React.ReactNode }) {
+export default function Header({
+  children,
+  onActivateMainPage,
+}: {
+  children: React.ReactNode;
+  onActivateMainPage: () => void;
+}) {
   return (
     <header className="flex col-start-2 col-span-12 justify-between  items-center py-4">
-      <div className="flex items-center gap-1">
+      <div
+        className="flex items-center gap-1 cursor-pointer"
+        onClick={() => onActivateMainPage()}
+      >
         <img src={logoCart} alt="Logo" className="w-8 h-8 fill-primary" />
         <span className="text-2xl font-bold text-primary uppercase">
           Fcommerce

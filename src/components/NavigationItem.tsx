@@ -1,13 +1,24 @@
 export default function NavigationItem({
-  path,
   title,
+  id,
+  onActivateProductListPage,
+  onSetProductListCategory,
 }: {
-  path: string;
   title: string;
+  id: string;
+  onActivateProductListPage: () => void;
+  onSetProductListCategory: (a: string) => void;
 }) {
   return (
-    <li className="mt-2 pt-2 pb-4 px-3 uppercase rounded-t-2xl text-lg font-bold hover:bg-white  hover:text-black transition  duration-500 ease-out">
-      <a href={path}>{title}</a>
+    <li
+      id={id}
+      className="mt-2 pt-2 pb-4 px-3 uppercase rounded-t-2xl text-lg font-bold hover:bg-white  hover:text-black transition  duration-500 ease-out cursor-pointer"
+      onClick={() => {
+        onActivateProductListPage();
+        onSetProductListCategory(id);
+      }}
+    >
+      {title}
     </li>
   );
 }

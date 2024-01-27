@@ -25,7 +25,7 @@ export default function Card({
 
   return (
     <div
-      className={`shadow-md flex flex-col rounded-2xl overflow-hidden relative ${width} p-4`}
+      className={`shadow-md flex flex-col rounded-2xl overflow-hidden relative ${width} p-4 cursor-pointer`}
       onClick={() => handleSetProductPage(id)}
     >
       <svg
