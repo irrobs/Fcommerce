@@ -63,7 +63,7 @@ export default function App() {
   ];
 
   return (
-    <div className="app font-body relative">
+    <div className="app font-body relative scroll-smooth">
       <CartSidebar
         sidebarActive={isSidebarActive}
         onSetSidebar={setIsSidebarActive}

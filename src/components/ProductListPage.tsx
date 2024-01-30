@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import Loading from "./Loading";
 
 type productListProps = {
   id: number;
@@ -109,7 +110,7 @@ export default function ProductListPage({
 
   if (!produtos) {
     // Product data is not yet available
-    return <div>Loading...</div>; /* criar loading component */
+    return <Loading />; /* criar loading component */
   }
   return (
     <div className="py-16 min-h-screen">

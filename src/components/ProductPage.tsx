@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "./Button";
 import Rating from "./Rating";
+import Loading from "./Loading";
 
 type productProps = {
   id: number;
@@ -32,8 +33,7 @@ export default function ProductPage({
   );
 
   if (!("id" in product)) {
-    // Product data is not yet available
-    return <div>Loading...</div>; /* criar loading component */
+    return <Loading />;
   }
 
   return (

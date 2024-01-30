@@ -3,6 +3,13 @@ import chevronUp from "../assets/chevron-up.svg";
 import Button from "./Button";
 
 export default function Footer() {
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
   return (
     <footer className="mt-12 row-start-4 col-span-full bg-black text-primary  p-6 flex flex-col items-center relative">
       <h2 className="text-2xl font-medium">Ajuda e informação</h2>
@@ -53,7 +60,10 @@ export default function Footer() {
           textHoverColor="hover:text-white"
         />
       </div>
-      <button className="absolute bg-white rounded-2xl w-16 h-16 flex items-center justify-center top-5 right-5 hover:bg-primary duration-300">
+      <button
+        onClick={() => scrollToTop()}
+        className="absolute bg-white rounded-2xl w-16 h-16 flex items-center justify-center top-5 right-5 hover:bg-primary duration-300"
+      >
         <img className="w-6 h-6" src={chevronUp} alt="Seta para cima" />
       </button>
     </footer>
