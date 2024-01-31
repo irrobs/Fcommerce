@@ -120,6 +120,7 @@ export default function ProductListPage({
       <div className="productList__container mt-10 ">
         {produtos.map((produto) => (
           <Card
+            key={produto.id}
             onSetProductPage={onSetProductPage}
             id={produto.id}
             title={produto.title}

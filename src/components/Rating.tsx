@@ -46,5 +46,5 @@ export default function Rating({
       </svg>
     );
   }
-  return <div className={`${marginTop} flex gap-0.5`}>{stars}</div>;
+  return <span className={`${marginTop} flex gap-0.5`}>{stars}</span>;
 }

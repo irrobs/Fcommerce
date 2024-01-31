@@ -84,6 +84,8 @@ export default function App() {
       <CartSidebar
         sidebarActive={isSidebarActive}
         onSetSidebar={setIsSidebarActive}
+        cartProducts={cartProducts}
+        onSetCartProduct={setCartProducts}
       />
       <Header onActivateMainPage={activateMainPage}>
         <HeaderIcons
@@ -102,7 +104,7 @@ export default function App() {
           />
         ))}
       </Navigation>
-      <main className="col-start-2 col-span-12 row-start-3 ">
+      <main className="col-start-2 col-span-12 row-start-3 min-h-screen">
         {isMainPageActive && (
           <MainPageContent
             onActivateProductListPage={activateProductListPage}

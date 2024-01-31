@@ -43,7 +43,7 @@ export default function ProductPage({
         ...cartProducts,
         {
           ...(product as productsProps),
-          amount: 0,
+          amount: 1,
         },
       ]);
     }

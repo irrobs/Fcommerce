@@ -3,12 +3,30 @@ import { Dispatch, SetStateAction } from "react";
 import Button from "./Button";
 import CardCart from "./CardCart";
 
+type productsProps = {
+  id: number;
+  title: string;
+  price: number;
+  amount?: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+};
+
 export default function CartSidebar({
   sidebarActive,
   onSetSidebar,
+  onSetCartProduct,
+  cartProducts,
 }: {
   sidebarActive: boolean;
   onSetSidebar: Dispatch<SetStateAction<boolean>>;
+  onSetCartProduct: (a: productsProps[]) => void;
+  cartProducts: productsProps[] | [];
 }) {
   return (
     <div
@@ -24,20 +42,39 @@ export default function CartSidebar({
       </button>
       <h2 className="text-3xl ">Seu carrinho</h2>
       <div className="mt-4 flex flex-col items-center gap-4 overflow-y-scroll h-full ">
-        <CardCart />
-        <CardCart />
-        <CardCart />
-        <CardCart />
-        <CardCart />
+        {cartProducts.map((product) => (
+          <CardCart
+            key={product.id}
+            cartProduct={product}
+            onSetCartProduct={onSetCartProduct}
+            cartProducts={cartProducts}
+          />
+        ))}
       </div>
       <div className="py-3 mt-auto">
         <div className="text-2xl flex justify-between py-3 border-b-2 border-primary">
           <span>Quantidade</span>
-          <span>10 produtos</span>
+          <p className="flex gap-2">
+            <span>
+              {cartProducts.reduce(
+                (acc, product) => acc + (product.amount || 0),
+                0
+              )}
+            </span>
+            <span>produtos</span>
+          </p>
         </div>
         <div className="flex justify-between items-center py-3 relative">
           <span className="text-xl">Total:</span>
-          <span className="font-bold text-black text-3xl">R$9000,00</span>
+          <span className="font-bold text-black text-3xl">
+            R$
+            {cartProducts
+              .reduce(
+                (acc, product) => acc + product.price * (product.amount || 0),
+                0
+              )
+              .toFixed(2)}
+          </span>
         </div>
         <div className="text-center">
           <Button
