@@ -15,7 +15,6 @@ type buttonProps = {
 export default function Button({
   width,
   border,
-
   text,
   textColor,
   fontWeight,

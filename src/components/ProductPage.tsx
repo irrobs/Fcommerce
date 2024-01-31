@@ -3,10 +3,11 @@ import Button from "./Button";
 import Rating from "./Rating";
 import Loading from "./Loading";
 
-type productProps = {
+type productsProps = {
   id: number;
   title: string;
   price: number;
+  amount?: number;
   description: string;
   category: string;
   image: string;
@@ -18,10 +19,14 @@ type productProps = {
 
 export default function ProductPage({
   curProduct,
+  onSetCartProduct,
+  cartProducts,
 }: {
   curProduct: null | number;
+  onSetCartProduct: (a: productsProps[]) => void;
+  cartProducts: productsProps[] | [];
 }) {
-  const [product, setProduct] = useState<object | productProps>({});
+  const [product, setProduct] = useState<productsProps | object>({});
 
   useEffect(
     function () {
@@ -31,6 +36,18 @@ export default function ProductPage({
     },
     [curProduct]
   );
+
+  function handleAddCart(id: number | null) {
+    if (!cartProducts.some((p) => p.id === id)) {
+      onSetCartProduct([
+        ...cartProducts,
+        {
+          ...(product as productsProps),
+          amount: 0,
+        },
+      ]);
+    }
+  }
 
   if (!("id" in product)) {
     return <Loading />;
@@ -64,18 +81,20 @@ export default function ProductPage({
             bgHoverColor="hover:bg-primary-light"
             textHoverColor="hover:text-white"
           />
-          <Button
-            width="w-full"
-            text="adicione ao carrinho"
-            textColor="text-white"
-            fontWeight="font-medium"
-            paddingHorizontal="px-0"
-            paddingVertical="py-2"
-            bgColor="bg-primary"
-            marginLeft="ml-0"
-            bgHoverColor="hover:bg-primary-light"
-            textHoverColor="hover:text-white"
-          />
+          <div onClick={() => handleAddCart(curProduct)}>
+            <Button
+              width="w-full"
+              text="adicione ao carrinho"
+              textColor="text-white"
+              fontWeight="font-medium"
+              paddingHorizontal="px-0"
+              paddingVertical="py-2"
+              bgColor="bg-primary"
+              marginLeft="ml-0"
+              bgHoverColor="hover:bg-primary-light"
+              textHoverColor="hover:text-white"
+            />
+          </div>
           <Button
             width="w-full"
             border="border"

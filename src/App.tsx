@@ -10,6 +10,20 @@ import CartSidebar from "./components/CartSidebar";
 import { useState } from "react";
 import MainCarrousel from "./components/MainCarrousel";
 
+type cartProductsProps = {
+  id: number;
+  title: string;
+  price: number;
+  amount?: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+};
+
 export default function App() {
   const [isMainPageActive, setIsMainPageActive] = useState(true);
   const [isProductListPageActive, setIsProductListPageActive] = useState(false);
@@ -18,6 +32,9 @@ export default function App() {
   const [curProduct, setCurProduct] = useState<number | null>(null);
   const [productListCategory, setProductListCategory] = useState<string | null>(
     null
+  );
+  const [cartProducts, setCartProducts] = useState<[] | cartProductsProps[]>(
+    []
   );
 
   function activateMainPage() {
@@ -100,7 +117,13 @@ export default function App() {
             onSetProductPage={activateProductPage}
           />
         )}
-        {isProductPageActive && <ProductPage curProduct={curProduct} />}
+        {isProductPageActive && (
+          <ProductPage
+            curProduct={curProduct}
+            cartProducts={cartProducts}
+            onSetCartProduct={setCartProducts}
+          />
+        )}
       </main>
       <Footer />
     </div>
