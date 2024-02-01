@@ -10,15 +10,16 @@ export default function Header({
 }) {
   return (
     <header className="flex col-start-2 col-span-12 justify-between  items-center py-4">
-      <div
+      <a
         className="flex items-center gap-1 cursor-pointer"
         onClick={() => onActivateMainPage()}
+        href="#main"
       >
         <img src={logoCart} alt="Logo" className="w-8 h-8 fill-primary" />
         <span className="text-2xl font-bold text-primary uppercase">
           Fcommerce
         </span>
-      </div>
+      </a>
       <div className="relative w-6/12">
         <input
           type="text"

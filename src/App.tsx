@@ -1,3 +1,5 @@
+import { useEffect, useState, useRef } from "react";
+
 import Header from "./components/Header";
 import HeaderIcons from "./components/HeaderIcons";
 import Navigation from "./components/Navigation";
@@ -7,22 +9,8 @@ import ProductListPage from "./components/ProductListPage";
 import ProductPage from "./components/ProductPage";
 import Footer from "./components/Footer";
 import CartSidebar from "./components/CartSidebar";
-import { useState } from "react";
 import MainCarrousel from "./components/MainCarrousel";
-
-type cartProductsProps = {
-  id: number;
-  title: string;
-  price: number;
-  amount?: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
-};
+import { useLocalStorageState } from "./components/useLocalStorageState";
 
 export default function App() {
   const [isMainPageActive, setIsMainPageActive] = useState(true);
@@ -33,9 +21,23 @@ export default function App() {
   const [productListCategory, setProductListCategory] = useState<string | null>(
     null
   );
-  const [cartProducts, setCartProducts] = useState<[] | cartProductsProps[]>(
-    []
+  const [cartProducts, setCartProducts] = useLocalStorageState(
+    [],
+    "cartProducts"
   );
+  const prevPageRef = useRef("");
+
+  useEffect(() => {
+    function handleHashChange() {
+      prevPageRef.current = window.location.hash;
+    }
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
 
   function activateMainPage() {
     setIsMainPageActive(true);
@@ -58,22 +60,22 @@ export default function App() {
 
   const navItems = [
     {
-      path: "#",
+      path: "#jewelery",
       title: "jóias",
       id: "jewelery",
     },
     {
-      path: "#",
+      path: "#electronics",
       title: "eletrônicos",
       id: "electronics",
     },
     {
-      path: "#",
+      path: "#men's clothing",
       title: "roupas masculinas",
       id: "men's clothing",
     },
     {
-      path: "#",
+      path: "#women's   clothing",
       title: "roupas femininas",
       id: "women's clothing",
     },
@@ -91,6 +93,7 @@ export default function App() {
         <HeaderIcons
           isActive={isSidebarActive}
           onSetSidebar={setIsSidebarActive}
+          cartProductsLenght={cartProducts.length}
         />
       </Header>
       <Navigation>
@@ -99,6 +102,7 @@ export default function App() {
             title={item.title}
             id={item.id}
             key={item.title}
+            path={item.path}
             onActivateProductListPage={activateProductListPage}
             onSetProductListCategory={setProductListCategory}
           />
@@ -124,6 +128,9 @@ export default function App() {
             curProduct={curProduct}
             cartProducts={cartProducts}
             onSetCartProduct={setCartProducts}
+            prevPage={prevPageRef.current}
+            onActivateProductListPage={activateProductListPage}
+            onActivateMainPage={activateMainPage}
           />
         )}
       </main>

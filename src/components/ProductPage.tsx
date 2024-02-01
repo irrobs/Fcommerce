@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "./Button";
 import Rating from "./Rating";
 import Loading from "./Loading";
+import arrowLeft from "../assets/chevron-left.svg";
 
 type productsProps = {
   id: number;
@@ -21,10 +22,16 @@ export default function ProductPage({
   curProduct,
   onSetCartProduct,
   cartProducts,
+  prevPage,
+  onActivateMainPage,
+  onActivateProductListPage,
 }: {
   curProduct: null | number;
   onSetCartProduct: (a: productsProps[]) => void;
   cartProducts: productsProps[] | [];
+  prevPage: string;
+  onActivateMainPage: () => void;
+  onActivateProductListPage: () => void;
 }) {
   const [product, setProduct] = useState<productsProps | object>({});
 
@@ -49,12 +56,27 @@ export default function ProductPage({
     }
   }
 
+  function handleReturnToPage() {
+    if (prevPage === "#main" || prevPage === "") {
+      onActivateMainPage();
+    } else {
+      onActivateProductListPage();
+    }
+  }
+
   if (!("id" in product)) {
     return <Loading />;
   }
 
   return (
-    <div className="flex gap-8 py-24">
+    <div className="flex gap-8 py-24 relative">
+      <button
+        className="absolute top-6 left-0 flex items-center gap-2 text-sm uppercase font-medium hover:-translate-x-4 duration-200"
+        onClick={() => handleReturnToPage()}
+      >
+        <img src={arrowLeft} alt="Seta para a esquerda" className="w-6 h-6" />
+        voltar
+      </button>
       <div className="w-1/2 h-1/2">
         <img src={product.image} alt={product.title} />
       </div>
