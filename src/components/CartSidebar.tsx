@@ -42,14 +42,20 @@ export default function CartSidebar({
       </button>
       <h2 className="text-3xl ">Seu carrinho</h2>
       <div className="mt-4 flex flex-col items-center gap-4 overflow-y-scroll h-full ">
-        {cartProducts.map((product) => (
-          <CardCart
-            key={product.id}
-            cartProduct={product}
-            onSetCartProduct={onSetCartProduct}
-            cartProducts={cartProducts}
-          />
-        ))}
+        {cartProducts.length === 0 ? (
+          <span className="text-grayDark text-lg my-auto">
+            Seu carrinho está vazio.
+          </span>
+        ) : (
+          cartProducts.map((product) => (
+            <CardCart
+              key={product.id}
+              cartProduct={product}
+              onSetCartProduct={onSetCartProduct}
+              cartProducts={cartProducts}
+            />
+          ))
+        )}
       </div>
       <div className="py-3 mt-auto">
         <div className="text-2xl flex justify-between py-3 border-b-2 border-primary">

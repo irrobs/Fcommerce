@@ -151,6 +151,7 @@ export default function App() {
             prevPage={prevPageRef.current}
             onActivateProductListPage={activateProductListPage}
             onActivateMainPage={activateMainPage}
+            onActivateWishlistPage={activateWishListPage}
             onSetWishlistProducts={setWishlistProducts}
             wishlistProducts={wishlistProducts}
           />

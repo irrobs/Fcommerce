@@ -25,6 +25,7 @@ export default function ProductPage({
   prevPage,
   onActivateMainPage,
   onActivateProductListPage,
+  onActivateWishlistPage,
   onSetWishlistProducts,
   wishlistProducts,
 }: {
@@ -34,6 +35,7 @@ export default function ProductPage({
   prevPage: string;
   onActivateMainPage: () => void;
   onActivateProductListPage: () => void;
+  onActivateWishlistPage: () => void;
   onSetWishlistProducts: Dispatch<SetStateAction<productsProps[]>>;
   wishlistProducts: productsProps[];
 }) {
@@ -63,6 +65,8 @@ export default function ProductPage({
   function handleReturnToPage() {
     if (prevPage === "#main" || prevPage === "") {
       onActivateMainPage();
+    } else if (prevPage === "#wishlist") {
+      onActivateWishlistPage();
     } else {
       onActivateProductListPage();
     }

@@ -31,15 +31,21 @@ export default function WishlistPage({
         Lista de desejos
       </h1>
       <div className="productList__container mt-10 ">
-        {wishlistProducts.map((produto) => (
-          <Card
-            product={produto}
-            width="w-full"
-            onSetProductPage={onSetProductPage}
-            onSetWishlistProducts={onSetWishlistProducts}
-            wishlistProducts={wishlistProducts}
-          />
-        ))}
+        {wishlistProducts.length === 0 ? (
+          <span className="mt-12 text-grayDark text-lg mx-auto col-span-full">
+            Sua lista de desejos está vazia.
+          </span>
+        ) : (
+          wishlistProducts.map((produto) => (
+            <Card
+              product={produto}
+              width="w-full"
+              onSetProductPage={onSetProductPage}
+              onSetWishlistProducts={onSetWishlistProducts}
+              wishlistProducts={wishlistProducts}
+            />
+          ))
+        )}
       </div>
     </div>
   );
