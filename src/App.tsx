@@ -33,10 +33,6 @@ export default function App() {
     }
 
     window.addEventListener("hashchange", handleHashChange);
-
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-    };
   }, []);
 
   function activateMainPage() {
@@ -75,7 +71,7 @@ export default function App() {
       id: "men's clothing",
     },
     {
-      path: "#women's   clothing",
+      path: "#women's clothing",
       title: "roupas femininas",
       id: "women's clothing",
     },
@@ -113,6 +109,7 @@ export default function App() {
           <MainPageContent
             onActivateProductListPage={activateProductListPage}
             onSetProductListCategory={setProductListCategory}
+            mainNavPaths={navItems.map((item) => item.path)}
           >
             <MainCarrousel onSetProductPage={activateProductPage} />
           </MainPageContent>

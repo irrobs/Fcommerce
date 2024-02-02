@@ -9,15 +9,18 @@ export default function MainPageContent({
   children,
   onActivateProductListPage,
   onSetProductListCategory,
+  mainNavPaths,
 }: {
   children: React.ReactNode;
+  mainNavPaths: string[];
   onActivateProductListPage: () => void;
   onSetProductListCategory: (a: string) => void;
 }) {
   return (
     <>
       <section className="mt-8 grid grid-cols-4 grid-rows-2 gap-4">
-        <div
+        <a
+          href={mainNavPaths[2]}
           className="relative rounded-2xl overflow-hidden  cursor-pointer"
           onClick={() => {
             onSetProductListCategory("men's clothing");
@@ -29,9 +32,10 @@ export default function MainPageContent({
             Voce bem vestido
           </span>
           <div className="main-nav--shadow h-full w-full absolute top-0 left-0"></div>
-        </div>
+        </a>
 
-        <div
+        <a
+          href={mainNavPaths[0]}
           className="relative row-start-2 col-start-1 col-end-2 rounded-2xl overflow-hidden shadow-xl cursor-pointer"
           onClick={() => {
             onSetProductListCategory("jewelery");
@@ -43,9 +47,10 @@ export default function MainPageContent({
             Complemente seu look
           </span>
           <div className="main-nav--shadow h-full w-full absolute top-0 left-0"></div>
-        </div>
+        </a>
 
-        <div
+        <a
+          href="#mais vendidos"
           className="relative row-span-full col-start-2 col-end-4 rounded-2xl overflow-hidden shadow-xl cursor-pointer"
           onClick={() => {
             onSetProductListCategory("mais vendidos");
@@ -61,9 +66,10 @@ export default function MainPageContent({
             Mais Vendidos
           </span>
           <div className="main-nav--shadow h-full w-full absolute top-0 left-0"></div>
-        </div>
+        </a>
 
-        <div
+        <a
+          href={mainNavPaths[1]}
           className="relative rounded-2xl overflow-hidden shadow-xl cursor-pointer"
           onClick={() => {
             onSetProductListCategory("electronics");
@@ -75,9 +81,10 @@ export default function MainPageContent({
             Melhore seu setup
           </span>
           <div className="main-nav--shadow h-full w-full absolute top-0 left-0"></div>
-        </div>
+        </a>
 
-        <div
+        <a
+          href={mainNavPaths[3]}
           className="relative rounded-2xl overflow-hidden shadow-xl cursor-pointer"
           onClick={() => {
             onSetProductListCategory("women's clothing");
@@ -89,7 +96,7 @@ export default function MainPageContent({
             Voce bem vestida
           </span>
           <div className="main-nav--shadow h-full w-full absolute top-0 left-0"></div>
-        </div>
+        </a>
       </section>
       <section>
         <h2 className="mt-12 flex gap-1">
