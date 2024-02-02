@@ -7,15 +7,20 @@ import cartIcon from "../assets/cart.svg";
 export default function HeaderIcons({
   isActive,
   onSetSidebar,
+  onSetWishlistPage,
   cartProductsLenght,
 }: {
   isActive: boolean;
   onSetSidebar: Dispatch<SetStateAction<boolean>>;
+  onSetWishlistPage: () => void;
   cartProductsLenght: number;
 }) {
   return (
     <ul className="flex gap-4">
-      <li className="h-16 w-16 flex align-center justify-center rounded-full transition duration-300 ease-out hover:bg-gray">
+      <li
+        className="h-16 w-16 flex align-center justify-center rounded-full transition duration-300 ease-out hover:bg-gray"
+        onClick={() => onSetWishlistPage()}
+      >
         <button>
           <img src={heartIcon} alt="Icone de coração" className="w-8 h-8" />
         </button>

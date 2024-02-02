@@ -18,9 +18,13 @@ type productListProps = {
 export default function ProductListPage({
   productCategory,
   onSetProductPage,
+  onSetWishlistProducts,
+  wishlistProducts,
 }: {
   productCategory: string | null;
   onSetProductPage: (a: number) => void;
+  onSetWishlistProducts: () => void;
+  wishlistProducts: productListProps;
 }) {
   const [produtos, setProdutos] = useState<null | productListProps>(null);
 
@@ -121,13 +125,11 @@ export default function ProductListPage({
         {produtos.map((produto) => (
           <Card
             key={produto.id}
-            onSetProductPage={onSetProductPage}
-            id={produto.id}
-            title={produto.title}
-            price={produto.price}
-            image={produto.image}
-            rating={produto.rating.rate}
+            product={produto}
             width="w-full"
+            onSetProductPage={onSetProductPage}
+            onSetWishlistProducts={onSetWishlistProducts}
+            wishlistProducts={wishlistProducts}
           />
         ))}
       </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Button from "./Button";
 import Rating from "./Rating";
 import Loading from "./Loading";
@@ -25,6 +25,8 @@ export default function ProductPage({
   prevPage,
   onActivateMainPage,
   onActivateProductListPage,
+  onSetWishlistProducts,
+  wishlistProducts,
 }: {
   curProduct: null | number;
   onSetCartProduct: (a: productsProps[]) => void;
@@ -32,6 +34,8 @@ export default function ProductPage({
   prevPage: string;
   onActivateMainPage: () => void;
   onActivateProductListPage: () => void;
+  onSetWishlistProducts: Dispatch<SetStateAction<productsProps[]>>;
+  wishlistProducts: productsProps[];
 }) {
   const [product, setProduct] = useState<productsProps | object>({});
 
@@ -62,6 +66,14 @@ export default function ProductPage({
     } else {
       onActivateProductListPage();
     }
+  }
+
+  function handleSetWishlistProducts(product: productsProps) {
+    wishlistProducts.some((p) => p.id === product.id)
+      ? onSetWishlistProducts(
+          wishlistProducts.filter((p) => p.id !== product.id)
+        )
+      : onSetWishlistProducts([...wishlistProducts, product]);
   }
 
   if (!("id" in product)) {
@@ -117,19 +129,21 @@ export default function ProductPage({
               textHoverColor="hover:text-white"
             />
           </div>
-          <Button
-            width="w-full"
-            border="border"
-            text="adicione aos items desejados"
-            textColor="text-primary"
-            fontWeight="font-medium"
-            paddingHorizontal="px-0"
-            paddingVertical="py-2"
-            bgColor="bg-white"
-            marginLeft="ml-0"
-            bgHoverColor="hover:bg-primary-light"
-            textHoverColor="hover:text-white"
-          />
+          <div onClick={() => handleSetWishlistProducts(product)}>
+            <Button
+              width="w-full"
+              border="border"
+              text="adicione aos items desejados"
+              textColor="text-primary"
+              fontWeight="font-medium"
+              paddingHorizontal="px-0"
+              paddingVertical="py-2"
+              bgColor="bg-white"
+              marginLeft="ml-0"
+              bgHoverColor="hover:bg-primary-light"
+              textHoverColor="hover:text-white"
+            />
+          </div>
         </div>
       </div>
     </div>
