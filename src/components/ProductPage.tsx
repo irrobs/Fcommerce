@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Button from "./Button";
 import Rating from "./Rating";
 import Loading from "./Loading";
+import { toast } from "sonner";
 import arrowLeft from "../assets/chevron-left.svg";
 
 type productsProps = {
@@ -43,9 +44,21 @@ export default function ProductPage({
 
   useEffect(
     function () {
-      fetch(`https://fakestoreapi.com/products/${curProduct}`)
-        .then((res) => res.json())
-        .then((data) => setProduct(data));
+      async function fetchProduct() {
+        try {
+          const res = await fetch(
+            `https://fakestoreapi.com/products/${curProduct}`
+          );
+
+          if (!res.ok) throw new Error();
+
+          const data = await res.json();
+          setProduct(data);
+        } catch (error) {
+          return <p>Produto não encontrado</p>;
+        }
+      }
+      fetchProduct();
     },
     [curProduct]
   );
@@ -59,6 +72,8 @@ export default function ProductPage({
           amount: 1,
         },
       ]);
+
+      toast.success("Adicionado ao carrinho!");
     }
   }
 
@@ -73,11 +88,15 @@ export default function ProductPage({
   }
 
   function handleSetWishlistProducts(product: productsProps) {
-    wishlistProducts.some((p) => p.id === product.id)
-      ? onSetWishlistProducts(
-          wishlistProducts.filter((p) => p.id !== product.id)
-        )
-      : onSetWishlistProducts([...wishlistProducts, product]);
+    if (wishlistProducts.some((p) => p.id === product.id)) {
+      onSetWishlistProducts(
+        wishlistProducts.filter((p) => p.id !== product.id)
+      );
+      toast.success("Removido da lista de desejos!");
+    } else {
+      onSetWishlistProducts([...wishlistProducts, product]);
+      toast.success("Adicionado a lista de desejos!");
+    }
   }
 
   if (!("id" in product)) {
@@ -107,18 +126,20 @@ export default function ProductPage({
           <span className="ml-auto font-bold text-2xl">R${product.price}</span>
         </p>
         <div className="flex flex-col gap-4 mt-auto">
-          <Button
-            width="w-full"
-            text="compre já"
-            textColor="text-white"
-            fontWeight="font-medium"
-            paddingHorizontal="px-0"
-            paddingVertical="py-2"
-            bgColor="bg-primary-dark"
-            marginLeft="ml-0"
-            bgHoverColor="hover:bg-primary-light"
-            textHoverColor="hover:text-white"
-          />
+          <div onClick={() => toast.success("Compra realizada com sucesso")}>
+            <Button
+              width="w-full"
+              text="compre já"
+              textColor="text-white"
+              fontWeight="font-medium"
+              paddingHorizontal="px-0"
+              paddingVertical="py-2"
+              bgColor="bg-primary-dark"
+              marginLeft="ml-0"
+              bgHoverColor="hover:bg-primary-light"
+              textHoverColor="hover:text-white"
+            />
+          </div>
           <div onClick={() => handleAddCart(curProduct)}>
             <Button
               width="w-full"

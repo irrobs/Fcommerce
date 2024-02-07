@@ -38,6 +38,7 @@ export default function WishlistPage({
         ) : (
           wishlistProducts.map((produto) => (
             <Card
+              key={produto.id}
               product={produto}
               width="w-full"
               onSetProductPage={onSetProductPage}

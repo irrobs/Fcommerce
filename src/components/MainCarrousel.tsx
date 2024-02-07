@@ -174,6 +174,7 @@ export default function MainCarrousel({
       <div className="flex gap-4 overflow-hidden">
         {produtosPopulares.map((produto) => (
           <Card
+            key={produto.id}
             product={produto}
             width="max-w-60"
             translate={translateX}

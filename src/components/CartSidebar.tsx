@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-
+import { toast } from "sonner";
 import Button from "./Button";
 import CardCart from "./CardCart";
 
@@ -28,6 +28,11 @@ export default function CartSidebar({
   onSetCartProduct: (a: productsProps[]) => void;
   cartProducts: productsProps[] | [];
 }) {
+  function handleFinishPurchase() {
+    onSetCartProduct([]);
+    onSetSidebar(false);
+    toast.success("Compra realizada com sucesso!");
+  }
   return (
     <div
       className={`${
@@ -82,7 +87,7 @@ export default function CartSidebar({
               .toFixed(2)}
           </span>
         </div>
-        <div className="text-center">
+        <div className="text-center" onClick={handleFinishPurchase}>
           <Button
             border="border"
             text="finalizar compra"
