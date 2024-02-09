@@ -94,7 +94,7 @@ export default function App() {
   ];
 
   return (
-    <div className="app font-body relative scroll-smooth">
+    <div className="app font-body relative scroll-smooth lg:text-base">
       <CartSidebar
         sidebarActive={isSidebarActive}
         onSetSidebar={setIsSidebarActive}

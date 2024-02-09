@@ -18,16 +18,16 @@ export default function MainPageContent({
 }) {
   return (
     <>
-      <section className="mt-8 grid grid-cols-4 grid-rows-2 gap-4">
+      <section className="mt-8 grid grid-cols-2 grid-rows-4 lg:grid-rows-2 lg:grid-cols-4 gap-4 max-w-[600px] lg:max-w-full">
         <a
           href={mainNavPaths[2]}
-          className="relative rounded-2xl overflow-hidden  cursor-pointer"
+          className="relative rounded-2xl overflow-hidden  cursor-pointer max-w-[400px] "
           onClick={() => {
             onSetProductListCategory("men's clothing");
             onActivateProductListPage();
           }}
         >
-          <img className="h-full " src={roupasM} alt="Modelo masculino" />
+          <img className="h-full w-full" src={roupasM} alt="Modelo masculino" />
           <span className="main-nav__item-text capitalize absolute left-2 bottom-1 text-2xl text-white font-semibold">
             Voce bem vestido
           </span>
@@ -36,13 +36,13 @@ export default function MainPageContent({
 
         <a
           href={mainNavPaths[0]}
-          className="relative row-start-2 col-start-1 col-end-2 rounded-2xl overflow-hidden shadow-xl cursor-pointer"
+          className="relative row-start-1 col-start-2 lg:row-start-2 lg:col-start-1 lg:col-end-2 rounded-2xl overflow-hidden shadow-xl cursor-pointer max-w-[400px]"
           onClick={() => {
             onSetProductListCategory("jewelery");
             onActivateProductListPage();
           }}
         >
-          <img src={acessorios} alt="Mão com anel" />
+          <img className="h-full" src={acessorios} alt="Mão com anel" />
           <span className="main-nav__item-text capitalize absolute left-2 top-1 text-2xl text-white font-semibold">
             Complemente seu look
           </span>
@@ -51,14 +51,14 @@ export default function MainPageContent({
 
         <a
           href="#mais vendidos"
-          className="relative row-span-full col-start-2 col-end-4 rounded-2xl overflow-hidden shadow-xl cursor-pointer"
+          className="relative row-span-full row-start-2 row-end-4 col-span-full lg:col-start-2 lg:col-end-4 lg:row-span-full rounded-2xl overflow-hidden shadow-xl cursor-pointer"
           onClick={() => {
             onSetProductListCategory("mais vendidos");
             onActivateProductListPage();
           }}
         >
           <img
-            className="h-full"
+            className="h-full max-w-screen-md"
             src={maisVendidos}
             alt="Pessoa no notebook fazendo compras"
           />
@@ -70,13 +70,13 @@ export default function MainPageContent({
 
         <a
           href={mainNavPaths[1]}
-          className="relative rounded-2xl overflow-hidden shadow-xl cursor-pointer"
+          className="relative rounded-2xl overflow-hidden shadow-xl cursor-pointer row-start-4 col-start-1 lg:col-start-4 lg:row-start-1 "
           onClick={() => {
             onSetProductListCategory("electronics");
             onActivateProductListPage();
           }}
         >
-          <img src={eletronicos} alt="Computador gamer" />
+          <img className="h-full" src={eletronicos} alt="Computador gamer" />
           <span className="main-nav__item-text capitalize absolute left-2 bottom-1 text-2xl text-white font-semibold">
             Melhore seu setup
           </span>
@@ -85,13 +85,13 @@ export default function MainPageContent({
 
         <a
           href={mainNavPaths[3]}
-          className="relative rounded-2xl overflow-hidden shadow-xl cursor-pointer"
+          className="relative rounded-2xl overflow-hidden shadow-xl cursor-pointer row-start-4 col-start-2 lg:col-start-4 lg:row-start-2 "
           onClick={() => {
             onSetProductListCategory("women's clothing");
             onActivateProductListPage();
           }}
         >
-          <img src={roupasF} alt="Modelo femina" />
+          <img className="h-full" src={roupasF} alt="Modelo femina" />
           <span className="main-nav__item-text capitalize absolute right-2 bottom-1 text-2xl text-white font-semibold">
             Voce bem vestida
           </span>

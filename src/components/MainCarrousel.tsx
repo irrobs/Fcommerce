@@ -131,7 +131,7 @@ export default function MainCarrousel({
     });
   }
   return (
-    <div className="mt-6 relative">
+    <div className="mt-6 relative mx-auto max-w-screen-md lg:max-w-full">
       <button
         className="carrousel__button--previous absolute top-1/2 left-0 z-10 w-12 h-12 rounded-full border flex items-center justify-center bg-white "
         onClick={handleTranslationPrevious}
@@ -171,7 +171,7 @@ export default function MainCarrousel({
         </svg>
       </button>
 
-      <div className="flex gap-4 overflow-hidden">
+      <div className="flex gap-4 overflow-hidden ">
         {produtosPopulares.map((produto) => (
           <Card
             key={produto.id}
