@@ -9,7 +9,7 @@ export default function Header({
   onActivateMainPage: () => void;
 }) {
   return (
-    <header className="flex col-start-2 col-span-12 justify-between  items-center py-4">
+    <header className="flex flex-col w-2/3 lg:w-auto mx-auto lg:mx-0 lg:flex-row gap-4 col-start-2 col-span-12 justify-between items-center py-4">
       <a
         className="flex items-center gap-1 cursor-pointer"
         onClick={() => onActivateMainPage()}
@@ -20,11 +20,11 @@ export default function Header({
           Fcommerce
         </span>
       </a>
-      <div className="relative w-6/12">
+      <div className="relative w-full max-w-md ">
         <input
           type="text"
           placeholder="Pesquise pelo produto..."
-          className="border border-neutral-950 rounded-full p-0.5 pl-2 w-full "
+          className="border border-neutral-950 rounded-full p-0.5 pl-2 w-full"
         />
         <img
           src={magnifyingIcon}

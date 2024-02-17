@@ -16,7 +16,7 @@ export default function HeaderIcons({
   cartProductsLenght: number;
 }) {
   return (
-    <ul className="flex gap-4">
+    <ul className="flex w-full lg:w-auto justify-between lg:justify-normal lg:gap-4">
       <a
         className="h-16 w-16 flex align-center justify-center rounded-full transition duration-300 ease-out hover:bg-gray"
         onClick={() => onSetWishlistPage()}

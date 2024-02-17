@@ -18,7 +18,7 @@ export default function MainPageContent({
 }) {
   return (
     <>
-      <section className="mt-8 grid grid-cols-2 grid-rows-4 lg:grid-rows-2 lg:grid-cols-4 gap-4 max-w-[600px] lg:max-w-full">
+      <section className="mx-auto lg:mx-0 mt-8 grid grid-cols-2 grid-rows-4 lg:grid-rows-2 lg:grid-cols-4 gap-4 max-w-[600px] lg:max-w-full">
         <a
           href={mainNavPaths[2]}
           className="relative rounded-2xl overflow-hidden  cursor-pointer max-w-[400px] "

@@ -5,7 +5,10 @@
 .app {
   display: grid;
   grid-template-columns:
-    [full-width-start] minmax(1rem, 1fr) [content-start]repeat(12, 70px)
+    [full-width-start] minmax(1rem, 1fr) [content-start]repeat(
+      12,
+      minmax(17.5px, 70px)
+    )
     [content-end]minmax(1rem, 1fr) [full-width-end];
   grid-template-rows: repeat(5, min-content);
 

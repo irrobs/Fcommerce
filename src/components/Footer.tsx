@@ -30,7 +30,7 @@ export default function Footer() {
           <a href="#">Contate-nos</a>
         </li>
       </ul>
-      <div className="mt-4 relative w-fit">
+      <div className="flex flex-col gap-2 text-center lg:flex-row mt-4 relative w-fit">
         <label className="text-xl font-medium" htmlFor="email">
           Se inscreve para receber promoções!
         </label>
@@ -46,7 +46,7 @@ export default function Footer() {
           alt="Flecha para a direita"
         />
       </div>
-      <div className="mt-4">
+      <div className="mt-4 flex ">
         <span className="text-xl font-medium">Diga-nos o que achou!</span>
         <Button
           text="feedback"
