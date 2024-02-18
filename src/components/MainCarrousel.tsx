@@ -145,9 +145,9 @@ export default function MainCarrousel({
     });
   }
   return (
-    <div className="mt-6 relative mx-auto max-w-screen-md lg:max-w-full">
+    <div className="mt-6 relative mx-auto max-w-xs md:max-w-screen-md lg:max-w-full">
       <button
-        className="carrousel__button--previous absolute top-1/2 left-0 z-10 w-12 h-12 rounded-full border flex items-center justify-center bg-white "
+        className="carrousel__button--previous absolute top-1/2 left-0 z-10 w-8 h-8 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center bg-white "
         onClick={handleTranslationPrevious}
       >
         <svg
@@ -166,7 +166,7 @@ export default function MainCarrousel({
         </svg>
       </button>
       <button
-        className="carrousel__button--next absolute top-1/2 right-0 z-10 w-12 h-12 rounded-full border flex items-center justify-center bg-white"
+        className="carrousel__button--next absolute top-1/2 right-0 z-10 w-8 h-8 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center bg-white"
         onClick={handleTranslationNext}
       >
         <svg

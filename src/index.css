@@ -5,14 +5,12 @@
 .app {
   display: grid;
   grid-template-columns:
-    [full-width-start] minmax(1rem, 1fr) [content-start]repeat(
+    [full-width-start] minmax(0.3rem, 1fr) [content-start]repeat(
       12,
       minmax(17.5px, 70px)
     )
-    [content-end]minmax(1rem, 1fr) [full-width-end];
+    [content-end]minmax(0.3rem, 1fr) [full-width-end];
   grid-template-rows: repeat(5, min-content);
-
-  column-gap: 15px;
 }
 .main-nav__item-text {
   text-shadow: 1px 1px 0 #ff6f61;

@@ -95,7 +95,7 @@ export default function App() {
   ];
 
   return (
-    <div className="app font-body relative scroll-smoothtext-xs md:text-sm lg:text-base">
+    <div className="app font-body relative scroll-smooth text-xs md:text-sm lg:text-base gap-x-[12px] md:gap-x-[15px] overflow-hidden">
       <CartSidebar
         sidebarActive={isSidebarActive}
         onSetSidebar={setIsSidebarActive}
