@@ -38,15 +38,16 @@
   stroke: white;
 }
 
-.productList__container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-
 .activeSidebar {
   transform: translateX(0);
 }
 .inactiveSidebar {
   transform: translateX(100%);
+}
+
+.productRowSize {
+  grid-template-rows: repeat(4, min-content);
+}
+.productRowSizeMobile {
+  grid-template-rows: repeat(5, min-content);
 }

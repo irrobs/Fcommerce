@@ -19,13 +19,13 @@ export default function Header({
   }, []);
 
   return (
-    <header className=" flex flex-col w-2/3 lg:w-auto mx-auto lg:mx-0 lg:flex-row gap-4 col-start-2 col-span-12 justify-between items-center py-4">
+    <header className="flex flex-col w-2/3 lg:w-auto mx-auto lg:mx-0 lg:flex-row gap-4 col-start-2 col-span-12 justify-between items-center py-4">
       {showIcon && (
         <button onClick={() => onSetShowMobileNav(true)}>
           <img
             src={mobileIcon}
             alt="Abrir navegação mobile"
-            className="w-8 h-8 absolute top-6 right-4"
+            className="w-8 h-8 absolute top-4 left-4"
           />
         </button>
       )}

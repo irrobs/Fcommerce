@@ -112,12 +112,16 @@ export default function ProductPage({
         <img src={arrowLeft} alt="Seta para a esquerda" className="w-6 h-6" />
         voltar
       </button>
-      <div className="w-1/2 h-1/2">
-        <img src={product.image} alt={product.title} />
-      </div>
-      <div className=" w-1/2 flex flex-col gap-6">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 productRowSize gap-6">
         <h2 className="text-3xl font-bold uppercase">{product.title}</h2>
         <p className="text-lg uppercase">{product.description}</p>
+        <img
+          src={product.image}
+          alt={product.title}
+          className="col-start-1 row-start-3 md:row-start-1 md:row-span-full"
+        />
+
         <p className="flex items-center gap-2">
           <span className="text-xl font-bold">
             {Math.round(product.rating.rate)}

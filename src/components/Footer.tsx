@@ -11,9 +11,9 @@ export default function Footer() {
   }
 
   return (
-    <footer className="mt-12 row-start-4 col-span-full bg-black text-primary  p-6 flex flex-col items-center relative">
+    <footer className="mt-12 row-start-4 col-span-full bg-black text-primary gap-4 p-6 flex flex-col items-center relative">
       <h2 className="text-2xl font-medium">Ajuda e informação</h2>
-      <ul className="mt-2 flex justify-center gap-4 text-grayDark">
+      <ul className="-mt-2 flex flex-col items-center md:flex-row md:items-start justify-center gap-4 text-grayDark">
         <li className="hover:text-gray duration-300">
           <a href="#">Termos de uso</a>
         </li>
@@ -30,12 +30,12 @@ export default function Footer() {
           <a href="#">Contate-nos</a>
         </li>
       </ul>
-      <div className="flex flex-col gap-2 text-center lg:flex-row mt-4 relative w-fit">
-        <label className="text-xl font-medium" htmlFor="email">
-          Se inscreve para receber promoções!
-        </label>
+      <label className="text-xl font-medium" htmlFor="email">
+        Se inscreve para receber promoções!
+      </label>
+      <div className="flex flex-col gap-2 text-center lg:flex-row -mt-2 relative w-fit">
         <input
-          className="rounded-full p-1 pl-2 w-96 ml-5"
+          className="rounded-full p-1 pl-2 w-96 ml-0 md:ml-5"
           type="email"
           placeholder="seuemail@gmail.com..."
           id="email"
@@ -62,7 +62,7 @@ export default function Footer() {
       </div>
       <button
         onClick={() => scrollToTop()}
-        className="absolute bg-white rounded-2xl w-16 h-16 flex items-center justify-center top-5 right-5 hover:bg-primary duration-300"
+        className="absolute bg-white rounded-2xl w-12 h-12 md:w-16 md:h-16 flex items-center justify-center top-5 right-5 hover:bg-primary duration-300"
       >
         <img className="w-6 h-6" src={chevronUp} alt="Seta para cima" />
       </button>
