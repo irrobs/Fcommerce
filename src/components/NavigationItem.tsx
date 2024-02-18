@@ -15,7 +15,7 @@ export default function NavigationItem({
     <a
       id={id}
       href={path}
-      className="mt-2 pt-2 pb-4 px-3 uppercase rounded-t-2xl text-lg font-bold hover:bg-white  hover:text-black transition  duration-500 ease-out cursor-pointer"
+      className="w-full md:w-auto text-center py-2 md:pt-2 md:pb-4 px-3 uppercase md:rounded-t-2xl text-lg font-bold bg-black md:border-b-0 hover:bg-white  hover:text-black transition  duration-500 ease-out cursor-pointer"
       onClick={() => {
         onActivateProductListPage();
         onSetProductListCategory(id);

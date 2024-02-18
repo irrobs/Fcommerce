@@ -1,15 +1,34 @@
+import { useEffect, useState, Dispatch, SetStateAction } from "react";
 import logoCart from "../assets/cart-solid.svg";
+import mobileIcon from "../assets/mobileNav.svg";
 import magnifyingIcon from "../assets/magnifying-glass.svg";
 
 export default function Header({
   children,
   onActivateMainPage,
+  onSetShowMobileNav,
 }: {
   children: React.ReactNode;
   onActivateMainPage: () => void;
+  onSetShowMobileNav: Dispatch<SetStateAction<boolean>>;
 }) {
+  const [showIcon, setShowIcon] = useState(false);
+
+  useEffect(function () {
+    setShowIcon(window.innerWidth < 768);
+  }, []);
+
   return (
-    <header className="flex flex-col w-2/3 lg:w-auto mx-auto lg:mx-0 lg:flex-row gap-4 col-start-2 col-span-12 justify-between items-center py-4">
+    <header className=" flex flex-col w-2/3 lg:w-auto mx-auto lg:mx-0 lg:flex-row gap-4 col-start-2 col-span-12 justify-between items-center py-4">
+      {showIcon && (
+        <button onClick={() => onSetShowMobileNav(true)}>
+          <img
+            src={mobileIcon}
+            alt="Abrir navegação mobile"
+            className="w-8 h-8 absolute top-6 right-4"
+          />
+        </button>
+      )}
       <a
         className="flex items-center gap-1 cursor-pointer"
         onClick={() => onActivateMainPage()}

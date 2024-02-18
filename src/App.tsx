@@ -31,6 +31,7 @@ export default function App() {
     [],
     "wishlistProducts"
   );
+  const [showMobileNav, setShowMobileNav] = useState(false);
 
   const prevPageRef = useRef("");
 
@@ -94,14 +95,17 @@ export default function App() {
   ];
 
   return (
-    <div className="app font-body relative scroll-smooth lg:text-base">
+    <div className="app font-body relative scroll-smooth md:text-sm lg:text-base">
       <CartSidebar
         sidebarActive={isSidebarActive}
         onSetSidebar={setIsSidebarActive}
         cartProducts={cartProducts}
         onSetCartProduct={setCartProducts}
       />
-      <Header onActivateMainPage={activateMainPage}>
+      <Header
+        onActivateMainPage={activateMainPage}
+        onSetShowMobileNav={setShowMobileNav}
+      >
         <HeaderIcons
           isActive={isSidebarActive}
           onSetSidebar={setIsSidebarActive}
@@ -109,7 +113,7 @@ export default function App() {
           cartProductsLenght={cartProducts.length}
         />
       </Header>
-      <Navigation>
+      <Navigation showMobileNav={showMobileNav}>
         {navItems.map((item) => (
           <NavigationItem
             title={item.title}
@@ -121,7 +125,7 @@ export default function App() {
           />
         ))}
       </Navigation>
-      <main className="col-start-2 col-span-12 row-start-3 min-h-screen">
+      <main className=" col-start-2 col-span-12 row-start-3 min-h-screen">
         {isMainPageActive && (
           <MainPageContent
             onActivateProductListPage={activateProductListPage}

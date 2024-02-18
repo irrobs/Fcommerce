@@ -14,6 +14,7 @@ export default {
         dark: "#CC594E",
       },
       black: "#000000",
+      blackTint: "#1c1917",
       white: "#ffffff",
       gray: "#E8E8E8",
       grayDark: "#716F6F",
