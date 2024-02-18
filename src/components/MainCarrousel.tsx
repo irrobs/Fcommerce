@@ -114,7 +114,21 @@ export default function MainCarrousel({
   ];
 
   function handleTranslationNext() {
-    if (slide === 2) return;
+    let slideLimit = 2;
+
+    if (window.innerWidth < 1024) {
+      slideLimit = 3;
+    }
+
+    if (window.innerWidth < 768) {
+      slideLimit = 4;
+    }
+
+    if (window.innerWidth < 600) {
+      slideLimit = 5;
+    }
+
+    if (slide === slideLimit) return;
     setSlide((s) => {
       const newSlide = s + 1;
       setTranslateX(() => -(newSlide * 100));

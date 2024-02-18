@@ -37,7 +37,7 @@ export default function CartSidebar({
     <div
       className={`${
         sidebarActive ? "activeSidebar" : ""
-      } flex flex-col fixed z-40 top-0 right-0 bg-white h-full w-1/2 lg:w-1/3 border-l-2 border-primary py-4 px-3 text-primary font-bold translate-x-full duration-500 ease-out `}
+      } flex flex-col fixed z-40 top-0 right-0 bg-white h-full w-full sm:w-2/3 md:w-1/2 lg:w-1/3 border-l-2 border-primary py-4 px-3 text-primary font-bold translate-x-full duration-500 ease-out `}
     >
       <button
         className="text-black absolute top-4 right-4 text-4xl font-bold hover:text-red duration-200"

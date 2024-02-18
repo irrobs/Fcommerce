@@ -95,7 +95,7 @@ export default function App() {
   ];
 
   return (
-    <div className="app font-body relative scroll-smooth md:text-sm lg:text-base">
+    <div className="app font-body relative scroll-smoothtext-xs md:text-sm lg:text-base">
       <CartSidebar
         sidebarActive={isSidebarActive}
         onSetSidebar={setIsSidebarActive}
@@ -113,7 +113,10 @@ export default function App() {
           cartProductsLenght={cartProducts.length}
         />
       </Header>
-      <Navigation showMobileNav={showMobileNav}>
+      <Navigation
+        showMobileNav={showMobileNav}
+        onSetShowMobileNav={setShowMobileNav}
+      >
         {navItems.map((item) => (
           <NavigationItem
             title={item.title}
@@ -125,7 +128,7 @@ export default function App() {
           />
         ))}
       </Navigation>
-      <main className=" col-start-2 col-span-12 row-start-3 min-h-screen">
+      <main className="col-start-2 col-span-12 row-start-3 min-h-screen">
         {isMainPageActive && (
           <MainPageContent
             onActivateProductListPage={activateProductListPage}
