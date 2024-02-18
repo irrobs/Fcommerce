@@ -30,7 +30,7 @@ export default function WishlistPage({
       <h1 className="font-bold text-3xl text-primary uppercase">
         Lista de desejos
       </h1>
-      <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4  mt-10 ">
+      <div className="grid grid-cols-1 px-12 md:px-0 justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4  mt-10 ">
         {wishlistProducts.length === 0 ? (
           <span className="mt-12 text-grayDark text-lg mx-auto col-span-full">
             Sua lista de desejos está vazia.
