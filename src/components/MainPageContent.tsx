@@ -43,7 +43,7 @@ export default function MainPageContent({
           }}
         >
           <img className="h-full" src={acessorios} alt="Mão com anel" />
-          <span className="main-nav__item-text capitalize absolute left-2 top-1 text-2xl text-white font-semibold">
+          <span className="main-nav__item-text capitalize absolute left-2 top-1 text-xl md:text-2xl text-white font-semibold">
             Complemente seu look
           </span>
           <div className="main-nav--shadow h-full w-full absolute top-0 left-0"></div>
@@ -92,7 +92,7 @@ export default function MainPageContent({
           }}
         >
           <img className="h-full" src={roupasF} alt="Modelo femina" />
-          <span className="main-nav__item-text capitalize absolute right-2 bottom-1 text-2xl text-white font-semibold">
+          <span className="main-nav__item-text capitalize absolute left-2 md:left-0 md:right-2 bottom-1 text-2xl text-white font-semibold">
             Voce bem vestida
           </span>
           <div className="main-nav--shadow h-full w-full absolute top-0 left-0"></div>

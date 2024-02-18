@@ -121,7 +121,7 @@ export default function ProductListPage({
       <h1 className="font-bold text-3xl text-primary uppercase">
         {productCategory}
       </h1>
-      <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10 ">
+      <div className="grid grid-cols-1 px-12 justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10 ">
         {produtos.map((produto) => (
           <Card
             key={produto.id}
