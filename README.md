@@ -1,30 +1,26 @@
-# React + TypeScript + Vite
+![Logo](/public/README-logo.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Fcommerce
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Fcommerce é uma simulação de um ecommerce com as funcionalidades de pesquisar produtos, exibir detalhes de produtos, adicionar produtos ao carrinho e a lista de desejos.
+Foi contruído utilizadando React, TailwindCSS para a estilização e a fake store API para utlização dos endpoints com os produtos.
+É um projeto de estudo criado com a intenção de desenvolver e praticar habilidades de desenvolvimento.
 
-## Expanding the ESLint configuration
+# Como utilizar
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Para utilizar o Fcommerce, é necessário apenas acessar o link do site(https://myfcommerce.netlify.app/).
 
-- Configure the top-level `parserOptions` property like this:
+## Funcionalidades
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Pesquisar produtos
+- Adicionar produtos a carrinho de compras e lista de desejos
+- Ver detalhes de produtos
+## Stack utilizada
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+**Front-end:** React
+
+## Autores
+
+- [@Matheus Escobar](https://github.com/irrobs)
